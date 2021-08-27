@@ -8,14 +8,15 @@ const App = () => {
     setInputList(event.target.value);
   };
   const listOfItems = () => {
+    if(inputList.length===0){
+      alert("enter something")
+    }else{
     setListItems((oldItems) => {
       return [...oldItems, inputList];
-    });
+    });}
     setInputList("");
   };
   const deleteItems = (id) => {
-    console.log("deleted");
-
     setListItems((oldItems) => {
       return oldItems.filter((arrElement, index) => {
         return index !== id;
@@ -36,6 +37,7 @@ const App = () => {
             value={inputList}
           />
           <button onClick={listOfItems}> + </button>
+          {console.log(listOfItems)}
           </div>
           <ol>
             {/* <li> {listItems} </li> */}
